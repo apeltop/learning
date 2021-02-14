@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/valid-palindrome/
 import re
 
-
+# 파이썬 알고리즘 인터뷰 책 참고 p.141
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
