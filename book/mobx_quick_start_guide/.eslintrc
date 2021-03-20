@@ -10,7 +10,10 @@
     "mocha": true
   },
   "rules": {
-    "max-length": 0
+    "max-length": 0,
+    "no-unused-vars": 1,
+    "no-console": 0,
+    "no-plusplus": 1
   },
   "plugins": ["import"],
   "globals": {

@@ -1,13 +1,14 @@
-import logo from "./logo.svg";
-import "./App.css";
-import "./1_observing_the_state_changes";
-import "./2_Its_time_to_take_action";
-import "./3_creating_observables";
-import "./4_observable_arrays";
-import "./5_observable_maps";
-import "./6_the_computed_observable";
-import "./7_better_syntax_with_decorators";
-import "./8_actions";
+import logo from './logo.svg';
+import './App.css';
+import './1_observing_the_state_changes';
+import './2_Its_time_to_take_action';
+import './3_creating_observables';
+import './4_observable_arrays';
+import './5_observable_maps';
+import './6_the_computed_observable';
+import './7_better_syntax_with_decorators';
+import './8_actions';
+import './9_enforcing_the_use_of_actions';
 
 function App() {
   return (

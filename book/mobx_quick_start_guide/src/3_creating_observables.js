@@ -1,4 +1,4 @@
-import { autorun, observable } from 'mobx';
+import { observable } from 'mobx';
 
 console.log('==============================3==============================');
 const item = observable({
