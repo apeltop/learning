@@ -9,6 +9,9 @@ import './6_the_computed_observable';
 import './7_better_syntax_with_decorators';
 import './8_actions';
 import './9_enforcing_the_use_of_actions';
+import './10_decorating_actions';
+import './11_autorun';
+import './12_reaction';
 
 function App() {
   return (
