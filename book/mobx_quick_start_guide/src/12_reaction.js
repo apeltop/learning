@@ -11,8 +11,11 @@ class Cart {
 
   cancelPriceTracker = null;
 
-  trackPriceChangeForItem(name) {
+  constructor() {
     makeAutoObservable(this);
+  }
+
+  trackPriceChangeForItem(name) {
     if (this.cancelPriceTracker) {
       this.cancelPriceTracker();
     }
