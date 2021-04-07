@@ -50,7 +50,7 @@ async function train(model, data) {
         validationData: [testXs, testYs],
         epochs: 20,
         shuffle: true,
-        callback: fitCallbacks
+        callbacks: fitCallbacks
     });
 }
 
