@@ -1,6 +1,28 @@
-plugins {
-    id 'java'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//plugins {
+//    id 'java'
+//}
+
+
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
+
 
 group 'com.apeltop'
 version '0.1-SNAPSHOT'
@@ -10,6 +32,8 @@ repositories {
 }
 
 dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
@@ -17,3 +41,6 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+
+
