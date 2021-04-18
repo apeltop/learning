@@ -1,4 +1,4 @@
 # Project exclude paths
 /venv/
-/leetcode/.idea/
+/algorithm/leetcode/.idea/
 /.idea/
