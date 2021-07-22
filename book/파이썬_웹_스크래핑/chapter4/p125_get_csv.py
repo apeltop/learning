@@ -4,13 +4,25 @@ from zipfile import ZipFile
 
 import requests
 
-resp = requests.get('https://s3.amazonaws.com/alexa-static/top-1m.csv.zip', stream=True)
-urls = []
 
-with ZipFile(BytesIO(resp.content)) as zf:
-    csv_filename = zf.namelist()[0]
-    with zf.open(csv_filename) as csv_file:
-        for _, website in csv.reader(TextIOWrapper(csv_file)):
-            urls.append('https://' + website)
+class AlexaCallback:
+    def __init__(self, max_urls=500):
+        self.max_urls = max_urls
+        self.seed_url = 'https://s3.amazonaws.com/alexa-static/top-1m.csv.zip'
+        self.urls = []
 
-print(urls)
+    def __call__(self):
+        resp = requests.get(self.seed_url, stream=True)
+        with ZipFile(BytesIO(resp.content)) as zf:
+            csv_filename = zf.namelist()[0]
+            with zf.open(csv_filename) as csv_file:
+                for _, website in csv.reader(TextIOWrapper(csv_file)):
+                    self.urls.append('https://' + website)
+                    if len(self.urls) == self.max_urls:
+                        break
+
+
+aCb = AlexaCallback()
+aCb()
+
+print(aCb.urls)
