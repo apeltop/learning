@@ -31,6 +31,10 @@ def crawl_sitemap(url):
     links = re.findall('<loc>(.*?)</loc>', sitemap)
 
     for link in links:
+        if link.split(".")[-1] == 'xml':
+            crawl_sitemap(link)
+            continue
+
         html = download(link)
 
 
