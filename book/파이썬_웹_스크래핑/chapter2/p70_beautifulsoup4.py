@@ -12,3 +12,9 @@ print()
 soup = BeautifulSoup(broken_html, 'html5lib')
 fixed_html = soup.prettify()
 pprint(fixed_html)
+
+print()
+
+ul = soup.find('ul', attrs={'class': 'country'})
+print(ul.find('li'))
+print(ul.find_all('li'))
