@@ -1,6 +1,7 @@
 import re
 import urllib.request
 from urllib.error import ContentTooShortError, HTTPError, URLError
+from urllib.parse import urljoin
 
 
 def download(url, num_retries=2, user_agent='wswp', charset='utf-8'):
@@ -27,15 +28,21 @@ def download(url, num_retries=2, user_agent='wswp', charset='utf-8'):
 
 def link_crawler(start_url, link_regex):
     crawl_queue = [start_url]
+    seen = set(crawl_queue)
+
     while crawl_queue:
         url = crawl_queue.pop()
         html = download(url)
-        if html is None:
+        if not html:
             continue
 
         for link in get_links(html):
             if re.match(link_regex, link):
-                crawl_queue.append(link)
+                abs_link = urljoin(start_url, link)
+
+                if abs_link not in seen:
+                    seen.add(abs_link)
+                    crawl_queue.append(abs_link)
 
 
 def get_links(html):
@@ -43,4 +50,4 @@ def get_links(html):
     return webpage_regex.findall(html)
 
 
-link_crawler('https://www.mvnohub.kr/user/index.do', '(.*?)')
+link_crawler('https://www.google.com', '(.*?)')
