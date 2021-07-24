@@ -1,10 +1,11 @@
+import sys
 from urllib.request import urlopen
 f = urlopen('https://hanbit.co.kr')
 
-print(type(f))
+encoding = f.info().get_content_charset(failobj="utf-8")
 
-print(f.read().decode('utf-8'))
+print('encoding: ', encoding, file=sys.stderr)
 
-print(f.status)
+text = f.read().decode(encoding)
 
-print(f.getheader('Content-Type'))
+print(text)
