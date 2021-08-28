@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #wrap {
+            display: flex;
+            width: 90%;
+            height: 500px;
+            margin: 0 auto;
+            border: 4px solid black;
+        }
+
+        #wrap div {
+            width: 33.333%;
+        }
+
+        #wrap div:first-child {
+            order: 3;
+            background: saddlebrown;
+        }
+
+        #wrap div:nth-child(2) {
+            order: 1;
+            background: salmon;
+        }
+
+        #wrap div:nth-child(3) {
+            order: 2;
+            background: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div></div><div></div><div></div>
+</div>
+</body>
+</html>
