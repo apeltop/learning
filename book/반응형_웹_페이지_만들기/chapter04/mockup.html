@@ -39,6 +39,70 @@
             min-height: 80px;
             background: bisque;
         }
+
+        .slider_section {
+            order: 2;
+            width: 50%;
+            background: salmon;
+        }
+
+        .gallery_section {
+            order: 3;
+            width: 27.08333333%;
+            height: 440px;
+            background: darkgoldenrod;
+        }
+
+        .rankup_section {
+            order: 4;
+            width: 22.91666666%;
+            background: blueviolet;
+        }
+
+        .latest_post_section {
+            order: 5;
+            width: 30%;
+            background: blue;
+        }
+
+        .popular_post_section {
+            order: 6;
+            width: 30%;
+            background: green;
+        }
+
+        .banner_section {
+            display: flex;
+            order: 7;
+            flex-flow: column nowrap;
+            width: 22.91666666666%;
+        }
+
+        .banner_section div {
+            flex: 1 1 0;
+        }
+
+        .banner_section div.banner_box_01 {
+            background: cadetblue;
+        }
+
+        .banner_section div.banner_box_02 {
+            background: darkorange ;
+        }
+
+        .social_section {
+            order: 8;
+            width: 17.083333333333%;
+            height: 270px;
+            background: royalblue;
+        }
+
+        .footer {
+            order: 9;
+            width: 100%;
+            height: 94px;
+            background: darkslateblue;
+        }
     </style>
 </head>
 <body>
@@ -54,7 +118,7 @@
 
     <section class="latest_post_section"></section>
     <section class="popular_post_section"></section>
-    <section class="banner_post_section">
+    <section class="banner_section">
         <div class="banner_box_01"></div>
         <div class="banner_box_02"></div>
     </section>
