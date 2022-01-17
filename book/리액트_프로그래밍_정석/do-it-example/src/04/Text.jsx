@@ -57,9 +57,9 @@ export default withStyles(({ color, size }) => ({
     fontSize: size.xs,
   },
   primary: {
-    fontSize: color.primary,
+    color: color.primary,
   },
   secondary: {
-    fontSize: color.secondary,
+    color: color.secondary,
   },
 }))(Text);
