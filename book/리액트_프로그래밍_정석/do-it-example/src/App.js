@@ -5,8 +5,13 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1 className="title">두잇! 리액트 시작하기</h1>
+      <div>
+        <nav>
+          <div className='nav-wrapper'>
+            <div>두잇! 리액트 시작하기</div>
+          </div>
+        </nav>
+        <h1>머티리얼 CSS</h1>
       </div>
     );
   }
