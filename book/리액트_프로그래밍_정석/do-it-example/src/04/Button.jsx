@@ -57,7 +57,7 @@ Button.defaultProps = {
   secondary: false,
 };
 
-export default withStyles(({ color, size, unit }) => ({
+export default withStyles(({ color, size, unit, responsive }) => ({
   default: {
     border: 1,
     borderStyle: 'solid',
@@ -67,6 +67,9 @@ export default withStyles(({ color, size, unit }) => ({
     fontSize: size.md,
     padding: unit * 2,
     cursor: 'pointer',
+    [responsive.small]: {
+      width: '100%',
+    },
   },
 
   large: {
