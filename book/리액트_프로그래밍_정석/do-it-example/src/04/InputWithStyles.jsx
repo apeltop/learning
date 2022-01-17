@@ -7,40 +7,50 @@ class Input extends PureComponent {
     this.setRef = this.setRef.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   handleChange(e) {
     const { name, onChange } = this.props;
     if (onChange) {
-      onChange(name, e.target.value)
+      onChange(name, e.target.value);
     }
   }
+
   componentDidMount() {
     if (this.props.autoFocus) {
       this.ref.focus();
     }
   }
+
   componentDidUpdate() {
     if (this.props.autoFocus) {
       this.ref.focus();
     }
   }
+
   setRef(ref) {
     this.ref = ref;
   }
+
   render() {
     const { errorMessage, label, name, value, type, onFocus } = this.props;
     return (
-      <label>
-        {label}
+      <div className='input-field'>
         <input
           id={`input_${name}`}
+          className={`validate ${errorMessage && 'invalid'}`}
           ref={this.setRef}
           onChange={this.handleChange}
           onFocus={onFocus}
           value={value}
           type={type}
         />
-        {errorMessage && <span className="error">{errorMessage}</span>}
-      </label>
+        <label className='active' for={`input_${name}`}>
+          {label}
+        </label>
+        {
+          errorMessage && <span className='error' data-error={errorMessage}>{errorMessage}</span>
+        }
+      </div>
     );
   }
 }
@@ -56,8 +66,10 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
 };
 Input.defaultProps = {
-  onChange: () => {},
-  onFocus: () => {},
+  onChange: () => {
+  },
+  onFocus: () => {
+  },
   autoFocus: false,
   type: 'text',
 };
