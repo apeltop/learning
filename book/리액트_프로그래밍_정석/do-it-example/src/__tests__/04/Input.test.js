@@ -16,6 +16,16 @@ describe('<Input>', () => {
     expect(wrapper).toHaveLength(1);
   });
 
+  it('assings the prop value and type', () => {
+    const expectedValue = '123';
+    const wrapper = shallow(<Input name='test_name' value={expectedValue} />);
+    expect(wrapper.find('input').prop('value')).toBe(expectedValue);
+
+    const { type, value } = wrapper.find('input').props();
+    expect(value).toBe(expectedValue);
+    expect(type).toBe('text');
+  });
+
   describe('contains <input>', () => {
     it('renders one input', () => {
       const wrapper = shallow(<Input name='test_name' />);
