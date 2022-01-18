@@ -11,6 +11,7 @@ describe('<Text>', () => {
   });
 
   it('contains <span>', () => {
+    expect(shallow(<Text>테스트</Text>).dive().find('span')).toHaveLength(1);
     expect(mount(<Text>테스트</Text>).find('span')).toHaveLength(1);
   });
 });
