@@ -1,11 +1,9 @@
 import React, { PureComponent } from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import configureStore from './configureStore';
 
 export class ReduxApp extends PureComponent {
-  store = createStore(state => state,
-    {loading: false, name: '두잇'},
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  store = configureStore({ loading: false });
 
   render() {
     return (

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import configureStore from './configureStore';
 
 const reducer = (state, action) => {
   const { type, payload } = action;
@@ -33,10 +33,7 @@ const reducer = (state, action) => {
 };
 
 export class ReduxApp extends PureComponent {
-  store = createStore(
-    reducer,
-    { loading: false, name: '두잇' },
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  store = configureStore({ loading: false });
 
   componentDidMount() {
     this.store.dispatch({
