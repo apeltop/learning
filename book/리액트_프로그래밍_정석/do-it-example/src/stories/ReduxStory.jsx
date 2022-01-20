@@ -7,6 +7,7 @@ import AdvReduxApp from '../07/AdvReduxApp03';
 import AdvReduxApp4 from '../07/AdvReduxApp04';
 import AdvReduxApp5 from '../07/AdvReduxApp05';
 import AdvReduxApp6 from '../07/AdvReduxApp06';
+import AdvReduxApp7 from '../07/AdvReduxApp07';
 
 storiesOf('Redux', module)
   .addWithJSX('기본 설정', () => <ReduxApp>안녕하세요</ReduxApp>)
@@ -16,3 +17,4 @@ storiesOf('Redux', module)
   .addWithJSX('그래프 데이터베이스 데이터 읽기 예제', () => <AdvReduxApp4 />)
   .addWithJSX('그래프 데이터베이스 데이터 수정 예제', () => <AdvReduxApp5 />)
   .addWithJSX('mapStateToProps 예제', () => <AdvReduxApp6 />)
+  .addWithJSX('mapDispatchToProps 예제', () => <AdvReduxApp7 />)
