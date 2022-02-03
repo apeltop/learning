@@ -28,7 +28,8 @@ def close_windows_if_not_main_url(main_url):
 
     for window_handle in driver.window_handles:
         if main_handle != window_handle:
-            driver.switch_to.window(window_handle).close()
+            driver.switch_to.window(window_handle)
+            driver.close()
 
     driver.switch_to.window(main_handle)
 
