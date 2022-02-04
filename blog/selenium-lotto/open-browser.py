@@ -1,5 +1,12 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 def create_driver():
@@ -34,4 +41,18 @@ def close_windows_if_not_main_url(main_url):
     driver.switch_to.window(main_handle)
 
 
+def send_keys(element, text):
+    element.send_keys(text)
+
+
+def click(element):
+    element.click()
+
+
 close_windows_if_not_main_url('common.do?method=main')
+
+click(driver.find_element(By.XPATH, '/html/body/div[1]/header/div[2]/div[2]/form/div/ul/li[1]/a'))
+
+send_keys(driver.find_element(By.ID, 'userId'), os.environ.get('ID'))
+send_keys(driver.find_element(By.NAME, 'password'), os.environ.get('PW'))
+send_keys(driver.find_element(By.NAME, 'password'), Keys.ENTER)
