@@ -1,5 +1,6 @@
-package com.apeltop.web.dto;
+package com.apeltop.dto;
 
+import com.apeltop.web.dto.HelloResponseDto;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
