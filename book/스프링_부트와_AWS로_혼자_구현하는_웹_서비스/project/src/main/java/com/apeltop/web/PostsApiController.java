@@ -1,16 +1,15 @@
 package com.apeltop.web;
 
+import com.apeltop.web.dto.PostsService;
 import com.apeltop.web.dto.PostsResponseDto;
 import com.apeltop.web.dto.PostsSaveRequestDto;
 import com.apeltop.web.dto.PostsUpdateRequestDto;
-import com.apeltop.web.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
-
     private final PostsService postsService;
 
     @PostMapping("/api/v1/posts")

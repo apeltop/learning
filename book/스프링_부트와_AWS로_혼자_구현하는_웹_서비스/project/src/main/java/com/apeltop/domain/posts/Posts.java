@@ -11,7 +11,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Posts extends BaseTimeEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,14 +24,26 @@ public class Posts extends BaseTimeEntity {
     private String author;
 
     @Builder
-    public Posts(String title, String content, String author) {
+    public Posts(Long id, String title, String content, String author) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
     }
 
+
     public void update(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Posts{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                '}';
     }
 }
