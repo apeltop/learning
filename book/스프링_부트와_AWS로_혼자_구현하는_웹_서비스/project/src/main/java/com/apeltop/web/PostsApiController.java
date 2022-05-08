@@ -1,6 +1,6 @@
 package com.apeltop.web;
 
-import com.apeltop.service.PostsService;
+import com.apeltop.web.dto.PostsService;
 import com.apeltop.web.dto.PostsResponseDto;
 import com.apeltop.web.dto.PostsSaveRequestDto;
 import com.apeltop.web.dto.PostsUpdateRequestDto;
