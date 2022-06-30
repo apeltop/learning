@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "tsc": "ts-node strategy/index"
+  },
+  "dependencies": {
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}
