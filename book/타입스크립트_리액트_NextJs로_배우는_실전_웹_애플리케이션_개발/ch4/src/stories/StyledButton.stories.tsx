@@ -1,14 +1,27 @@
 import {StyledButton} from "@/components/StyledButton";
 import {Meta} from "@storybook/react";
+import {action} from "@storybook/addon-actions";
 
 export default {
     title: 'StyledButton',
     component: StyledButton,
+    argTypes: {
+        onClick: {action: 'clicked'},
+    }
 } as Meta<typeof StyledButton>
 
+const incrementAction = action('increment')
 export const Primary = (props) => {
+    const [count, setCount] = React.useState(0)
+    const onClick = (e: React.MouseEvent) => {
+        setCount(count + 1)
+        incrementAction()
+    }
+
     return (
-        <StyledButton variant="primary" {...props}>Primary</StyledButton>
+        <StyledButton variant="primary" {...props} onClick={onClick}>
+            Count {count}
+        </StyledButton>
     )
 }
 
