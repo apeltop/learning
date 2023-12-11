@@ -1,45 +1,50 @@
-import React, {useCallback, useEffect, useRef} from "react";
+import React, { useCallback, useEffect, useRef } from 'react'
 
 type DelayInputProps = {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const DelayInput = (props: DelayInputProps) => {
-    const {onChange} = props;
+  const { onChange } = props
 
-    const [isTyping, setIsTyping] = React.useState(false);
-    const [inputValue, setInputValue] = React.useState('');
-    const [viewValue, setViewValue] = React.useState('');
+  const [isTyping, setIsTyping] = React.useState(false)
+  const [inputValue, setInputValue] = React.useState('')
+  const [viewValue, setViewValue] = React.useState('')
 
-    const timeRef = useRef<ReturnType<typeof setTimeout>>(null);
+  const timeRef = useRef<ReturnType<typeof setTimeout>>(null)
 
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsTyping(true);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setIsTyping(true)
 
-        setInputValue(e.target.value);
+      setInputValue(e.target.value)
 
-        if (timeRef.current !== null) {
-            clearTimeout(timeRef.current);
-        }
+      if (timeRef.current !== null) {
+        clearTimeout(timeRef.current)
+      }
 
-        timeRef.current = setTimeout(() => {
-            timeRef.current = null;
+      timeRef.current = setTimeout(() => {
+        timeRef.current = null
 
-            setIsTyping(false);
+        setIsTyping(false)
 
-            setViewValue(e.target.value);
-            onChange(e);
-        }, 1000);
+        setViewValue(e.target.value)
+        onChange(e)
+      }, 1000)
+    },
+    [onChange],
+  )
 
-    }, [onChange])
+  const text = isTyping ? '입력 중...' : `입력 값: ${viewValue}`
 
-    const text = isTyping ? '입력 중...' : `입력 값: ${viewValue}`;
-
-    return (
-        <div>
-            <input data-testid={'input-text'} value={inputValue} onChange={handleChange}/>
-            <span data-testid={'display-text'}>{text}</span>
-        </div>
-    )
-
+  return (
+    <div>
+      <input
+        data-testid={'input-text'}
+        value={inputValue}
+        onChange={handleChange}
+      />
+      <span data-testid={'display-text'}>{text}</span>
+    </div>
+  )
 }
