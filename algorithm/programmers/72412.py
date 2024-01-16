@@ -36,11 +36,12 @@ def solution(infos, queries):
 
             if q == '-':
                 if i == 0 and not search:
-                    arr = select_dict[0]
-                else:
-                    for s in search:
-                        for select in select_dict[i]:
-                            arr.append(s + select)
+                    search = select_dict[0]
+                    continue
+
+                for s in search:
+                    for select in select_dict[i]:
+                        arr.append(s + select)
 
             search = arr
 
