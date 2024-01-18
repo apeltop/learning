@@ -10,11 +10,7 @@ def solution(orders, course):
         for order in orders:
             comb_dict[cor].extend(map(lambda x: ''.join(sorted(x)), (combinations(order, r=cor))))
 
-        if len(comb_dict[cor]) < 2:
-            continue
-
-        counter = Counter(comb_dict[cor])
-        most = counter.most_common()
+        most = Counter(comb_dict[cor]).most_common()
         answer += [k for k, v in most if v > 1 and v == most[0][1]]
 
     return sorted(answer)
