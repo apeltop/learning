@@ -13,3 +13,5 @@ kubectl logs -f nginx-19
 kubectl describe node kube-2
 
 kubectl delete deployments.apps busybox
+
+
