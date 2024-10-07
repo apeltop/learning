@@ -60,4 +60,32 @@ kubectl get pods
 for i in {1..10}; do curl -s 10.211.55.30 | grep ID; done | sort | uniq -c | sort -nr
 
 
+apt -y install kubetail
+kubetail --version
+kubectl ns metallb
+kubectl get pod
+kubectl ns metallb-system
+kubectl get pod
+kubetail speaker
+kubetail -n metallb-system
+
+
+
+
+wget https://github.com/grafana/k6/releases/download/v0.54.0/k6-v0.54.0-linux-arm64.tar.gz
+tar -xzvf k6-v0.54.0-linux-arm64.tar.gz
+cd k6-v0.54.0-linux-arm64
+cd k6
+nano k6-http.js
+./k6 run k6-http.js
+
+
+
+
+
+
+
+
+
+
 
