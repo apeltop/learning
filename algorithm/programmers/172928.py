@@ -1,3 +1,5 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/172928
+
 def solution(park, routes):
     y, x = next((y, x) for y, row in enumerate(park) for x, col in enumerate(park[y]) if park[y][x] == 'S')
     for route in routes:
@@ -24,7 +26,7 @@ def solution(park, routes):
         elif command in 'SN':
             y1, y2 = sorted([y, ny])
             if any([v for v in park[y1:y2 + 1] if v[nx] == 'X']):
-                    continue
+                continue
         y, x = ny, nx
 
     return [y, x]
