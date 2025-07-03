@@ -1,35 +1,29 @@
 # https://programmers.co.kr/learn/courses/30/lessons/43165
 import collections
+from itertools import product
 
 
 def solution(numbers, target):
-    def dfs(next_elem):
-        if not next_elem:
-            dic[''.join([str(e) for e in prev_elem[:]])] = True
-            if sum(prev_elem) == target:
-                answer[''.join([str(e) for e in prev_elem[:]])] = True
+    def bfs():
+        q = collections.deque([[numbers[0]], [-numbers[0]]])
+        possible = []
 
-        for elem in next_elem:
-            prev_elem.append(elem)
-            next_e = next_elem[:]
-            next_e.remove(elem)
+        while q:
+            arr = q.popleft()
 
-            if ''.join([str(e) for e in prev_elem[:]]) in dic:
-                prev_elem.pop()
+            if len(arr) == len(numbers):
+                if sum(arr) == target:
+                    possible.append(arr)
                 continue
-            dfs(next_e)
-            prev_elem.append(-prev_elem.pop())
-            dfs(next_e)
-            prev_elem.pop()
 
-    answer = collections.defaultdict(bool)
-    dic = {}
-    prev_elem = []
-    dfs(numbers)
-    return len(answer)
+            q.append(arr + [numbers[len(arr)]])
+            q.append(arr + [-numbers[len(arr)]])
 
+        return possible
 
-# print(*itertools.permutations([1,2,3], 3))
-# print(*itertools.combinations([1,2,3], 3))
-# print(solution([1, 2, 3], 6))  # 1
-print(solution([1, 1, 1, 1, 1], 3))  # 5
+    return len(bfs())
+
+# print(list(product(*[(x, -x) for x in [1, 2, 3]])))
+print(solution([1, 2, 3], 6), 1)  # 1
+print(solution([1, 1, 1, 1, 1], 3), 5)  # 5
+print(solution([4, 1, 2, 1], 4), 2)  # 5
